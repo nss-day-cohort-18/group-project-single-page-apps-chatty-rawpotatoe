@@ -13,3 +13,13 @@ submitMessage(event) {};
 
 clearBoard() {};
 
+var MessageBoard = (function() {
+
+  // Private variable to store the price
+  
+
+  // Return the public interface that other code can interact with
+  return {
+    }
+  };
+})();
