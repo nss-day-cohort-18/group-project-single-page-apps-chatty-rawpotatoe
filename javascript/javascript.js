@@ -1,20 +1,25 @@
-var messageField = document.getElementById("inputText");
-var clearButton = document.getElementById("clear-board-button");
-var darkCheck = document.getElementById("dark-theme-checkbox");
-var largeCheck = document.getElementById("large-text-checkbox");
-
+"use strict";
 
 var MessageBoard = (function(originalMessageBoard) {
+
+	var messageField = document.getElementById("inputText");
+	var clearButton = document.getElementById("clear-board-button");
+	var darkCheck = document.getElementById("dark-theme-checkbox");
+	var largeCheck = document.getElementById("large-text-checkbox");
 
 	 var objectRequest = new XMLHttpRequest();
       
      objectRequest.addEventListener("load", function () {
-    	objectOfMessages = JSON.parse(event.target.responseText);
+    	var objectOfMessages = JSON.parse(event.target.responseText);
 
     	for (var i = 0; i < objectOfMessages.length; i++) {
     		var eachMessage = objectOfMessages[i];
     		MessageBoard.addMessage(String(eachMessage));
     	};
+     });
+
+     objectRequest.addEventListener("error", function(){
+     	console.log("Raw Potatoe knows all");
      });
 
      objectRequest.open("GET", "messages.json");
@@ -34,3 +39,9 @@ var MessageBoard = (function(originalMessageBoard) {
   return originalMessageBoard;
 
 })(MessageBoard || {});
+
+
+
+
+
+
