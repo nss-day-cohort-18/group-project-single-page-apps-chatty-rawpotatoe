@@ -8,9 +8,10 @@
 var MessageBoard = (function(originalMessageBoard) {
 
 	var messageLog = [];
-	var users = {
-  		names: ["Jordan", "Jeremy", "Adam", "Ruthie"]
-	};
+	var userLog = [];
+	// var users = {
+ //  		names: ["Jordan", "Jeremy", "Adam", "Ruthie"]
+	// };
 
 	var inputField = document.getElementById("inputText");
 	inputField.addEventListener("keypress", function (event) {
@@ -38,7 +39,6 @@ var MessageBoard = (function(originalMessageBoard) {
 			var targetID = event.target.id;
 			var newList = MessageBoard.removeMessage(targetID, messageLog);
 			messageLog = newList;
-			console.log("messageLog", messageLog);
 		});
 		
 		
@@ -51,6 +51,13 @@ var MessageBoard = (function(originalMessageBoard) {
 				inputField.value = String(targetID);
 				inputField.focus();
 		});
+	}
+
+	function listLimiter () {
+	var firstMessage = messageLog[0];
+	messageLog.shift();
+	var actualMessage = document.getElementById(firstMessage);
+	actualMessage.parentElement.remove();
 	}
 
 
@@ -86,10 +93,14 @@ var MessageBoard = (function(originalMessageBoard) {
 	    	inputField.value = "";
 
 	    	messageLog.push(potatoe);
-	    	console.log("messageLog", messageLog);
+	    	userLog.push(tomato);
 	    	messageEventListener();
 
-	    };
+	    	if (messageLog.length > 20) {
+	    		listLimiter();
+	    	};
+
+	    },
 
 	    originalMessageBoard.goodbyeMessages = function(booty) {
 	    	if (event.target.id === "clear-board-button") {
