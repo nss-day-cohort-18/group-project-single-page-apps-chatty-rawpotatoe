@@ -54,6 +54,16 @@ var MessageBoard = (function(originalMessageBoard) {
 
 	    };
 
+	    originalMessageBoard.goodbyeMessages = function(booty) {
+	    	if (event.target.id === "clear-board-button") {
+	    	messageLog = [];
+	    	var goodbyeBoard = document.getElementById("message-board-list");
+	    	goodbyeBoard.innerHTML = "";
+	    	} else {
+	    		console.log("Syntax Error please piss off.");
+	    	}
+	    };
+
   // Return the new, augmented object with the new method on it
   return originalMessageBoard;
 
