@@ -1,7 +1,7 @@
 "use strict";
 
 var MessageBoard = (function(originalMessageBoard) {
-
+// debugger
 	var messageField = document.getElementById("inputText");
 	var clearButton = document.getElementById("clear-board-button");
 	var darkCheck = document.getElementById("dark-theme-checkbox");
@@ -35,10 +35,17 @@ var MessageBoard = (function(originalMessageBoard) {
      	listOfMessages.classList.toggle("large-font");
      });
 
+     clearButton.addEventListener('click', function() {
+
+     });
 
   return originalMessageBoard;
 
 })(MessageBoard || {});
+
+
+
+
 
 
 

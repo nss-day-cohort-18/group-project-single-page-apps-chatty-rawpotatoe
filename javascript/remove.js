@@ -1,21 +1,24 @@
 "use strict";
 
 var MessageBoard = (function(originalMessageBoard) {
+	console.log("hey fuck face");
 
-	return {
-        removeMessage: function (potato) {
-        var counter = 0;
-            for (var u = 0; u < messageLog.length; u++) {
-                if (counter === 0 && potato === messageLog[u]) {
-                messageLog.splice(u, 1);
-                counter = 1;
-                console.log(messageLog);
+	  
+	    originalMessageBoard.removeMessage = function(potato, messageList) {
+            for (var u = 0; u < messageList.length; u++) {
+                if (potato === messageList[u]) {
+                messageList.splice(u, 1);
                 }
             };
-        event.target.parentElement.remove();
-        }
-    }
+        	event.target.parentElement.remove();
+        	return messageList;
+        };
 
-  return originalMessageBoard;
+  		return originalMessageBoard;
+
+  // Return the new, augmented object with the new method on it
 
 })(MessageBoard || {});
+
+
+

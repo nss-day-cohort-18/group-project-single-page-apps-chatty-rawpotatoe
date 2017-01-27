@@ -7,49 +7,32 @@
 
 var MessageBoard = (function(originalMessageBoard) {
 
-	// 1.  Create an array for the messages
 	var messageLog = [];
 
-	// 2. Event Listener for enter button grabs .value of input field
 	var inputField = document.getElementById("inputText");
-	inputField.addEventListener("keyup", function (event) {
+	inputField.addEventListener("keypress", function (event) {
 		if (event.which === 13) {
 			var messageText = inputField.value;
-			messageLog.push(messageText);
-			console.log(messageLog);
 			MessageBoard.addMessage(messageText);
 		}
 	});
 
-	// function removeMessage () {
-	// 	var counter = 0;
-	// 	var messageId = event.target.id;
-	// 	for (var u = 0; u < messageLog.length; u++) {
-	// 		if (counter === 0 && messageId === messageLog[u]) {
-	// 			messageLog.splice(u, 1);
-	// 			counter = 1;
-	// 			console.log(messageLog);
-	// 		}
-	// 	};
-	// 	event.target.parentElement.remove();
-	// };
 
 	function messageEventListener () {
 		var deleteProperty = document.getElementsByClassName("delete-me");
+		var yup = deleteProperty.length - 1;
 
-		for (var i = 0; i < deleteProperty.length; i++) {
-			deleteProperty[i].addEventListener('click', function() {
-				var targetID = event.target.id;
-				MessageBoard.removeMessage(targetID);
-			});
-		}
+		deleteProperty[yup].addEventListener('click', function() {
+			var targetID = event.target.id;
+			var newList = MessageBoard.removeMessage(targetID, messageLog);
+			messageLog = newList;
+			console.log("messageLog", messageLog);
+		});
 	}
 
  // Expose a function to read all messages and delete a single message
-	  return {
-	  	readMessage: function(x) {
-	    },
-	    addMessage: function(potatoe) {
+
+	    originalMessageBoard.addMessage = function(potatoe) {
 	    	var messageList = document.getElementById("message-board-list");
 	    	var createLi = document.createElement("LI");
 	    	var theMessage = document.createTextNode(potatoe);
@@ -65,10 +48,11 @@ var MessageBoard = (function(originalMessageBoard) {
 
 	    	inputField.value = "";
 
+	    	messageLog.push(potatoe);
+	    	console.log("messageLog", messageLog);
 	    	messageEventListener();
 
-	    }
-	  };
+	    };
 
   // Return the new, augmented object with the new method on it
   return originalMessageBoard;
