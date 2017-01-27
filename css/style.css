@@ -1,6 +1,18 @@
 #chattyBody {
-	background-image: url(http://bgfons.com/upload/potato_PNG5171.png)
+	background-image: url(https://s-media-cache-ak0.pinimg.com/originals/d5/9e/5f/d59e5fb961a1d0ff459cdb477524821f.jpg)
+
 }
+
+#message-board-list {
+	list-style-type: none;
+}
+
+
+
+
+
+
+
 
 #fixednav li {
   display: inline-block;
@@ -19,7 +31,7 @@
   margin: 0;
   padding: 2px;
   display: flex;
-  background-color: #704206;
+  background-color: navy;
 }
 
 
@@ -34,7 +46,8 @@
   justify-content: space-between;
   align-content: center;
   /*overflow: hidden;*/
-  background-color: #704206;
+  background-color: navy;
+  background-image: url(http://www.walldevil.com/wallpapers/w02/619472-blue-minimalistic-navy-pattern-patterns.jpg);
   width: cover;
   height: cover;
   left: 0;
@@ -45,8 +58,7 @@
   font: sans-serif;
   font-weight: bold;
   font-size: relative; 
-  text-shadow: 2px 1px #9ba4b2;
-  box-shadow: 2px 1px #9ba4b2;
+
 }
 
 #fixednav li {
@@ -59,21 +71,18 @@
 	align-content: center;
 	float: center;
 	float: middle;
-
+	font-size: 500%;
 
 }
 
 
 .realBody {
-	background-color: #704206;
-
-	text-shadow: 2px 1px #9ba4b2;
-    box-shadow: 2px 1px #9ba4b2;
-
-    padding-top: 10%;
-    padding-right: 30%;
-    padding-bottom: 10%;
-    padding-left: 30%; 
+	overflow: hidden;
+	background-color: navy;
+	background-image: url(http://www.walldevil.com/wallpapers/w02/619472-blue-minimalistic-navy-pattern-patterns.jpg);
+	min-height: 
+    min-width: 200px;
+    padding: 0; 
     margin-top: 20%;
     margin-bottom: 25%;
     margin-left: 0;
@@ -83,6 +92,9 @@
     border-color: #233a5e; */
   
 }
+
+
+
 
 .wrapper {
     display: flex;
