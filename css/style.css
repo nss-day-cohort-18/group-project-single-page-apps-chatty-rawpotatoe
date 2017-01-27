@@ -1,0 +1,94 @@
+#chattyBody {
+	background-image: url(http://bgfons.com/upload/potato_PNG5171.png)
+}
+
+#fixednav li {
+  display: inline-block;
+  align-content: center;
+}
+
+.spacer {
+  width: inherit;
+  height: 95px;
+
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  margin: 0;
+  padding: 2px;
+  display: flex;
+  background-color: #704206;
+}
+
+
+
+
+.navbar ul {
+  position: fixed;
+  margin: 0;
+  padding: 30px;
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  align-content: center;
+  /*overflow: hidden;*/
+  background-color: #704206;
+  width: cover;
+  height: cover;
+  left: 0;
+  right: 0;
+  top: 0;
+  text-align: center;
+  color: white;
+  font: sans-serif;
+  font-weight: bold;
+  font-size: relative; 
+  text-shadow: 2px 1px #9ba4b2;
+  box-shadow: 2px 1px #9ba4b2;
+}
+
+#fixednav li {
+	display: inline-block;
+	color: white;
+	margin: auto;
+	padding: 20px 50px;
+	text-decoration: none;
+	text-align: center;
+	align-content: center;
+	float: center;
+	float: middle;
+
+
+}
+
+
+.realBody {
+	background-color: #704206;
+
+	text-shadow: 2px 1px #9ba4b2;
+    box-shadow: 2px 1px #9ba4b2;
+
+    padding-top: 10%;
+    padding-right: 30%;
+    padding-bottom: 10%;
+    padding-left: 30%; 
+    margin-top: 20%;
+    margin-bottom: 25%;
+    margin-left: 0;
+    margin-right: 0;
+    color: white;
+    /*border: 30px;
+    border-color: #233a5e; */
+  
+}
+
+.wrapper {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    max-height: 100%;
+    /*top: 0; */
+
+  }
