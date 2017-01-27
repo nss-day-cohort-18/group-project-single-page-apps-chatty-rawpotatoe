@@ -1,8 +1,6 @@
 "use strict";
 
 var MessageBoard = (function(originalMessageBoard) {
-	console.log("hey fuck face");
-
 	  
 	    originalMessageBoard.removeMessage = function(potato, messageList) {
             for (var u = 0; u < messageList.length; u++) {
@@ -13,6 +11,8 @@ var MessageBoard = (function(originalMessageBoard) {
         	event.target.parentElement.remove();
         	return messageList;
         };
+
+        
 
   		return originalMessageBoard;
 
