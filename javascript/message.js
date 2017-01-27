@@ -28,7 +28,19 @@ var MessageBoard = (function(originalMessageBoard) {
 			messageLog = newList;
 			console.log("messageLog", messageLog);
 		});
+		
+		
+		var editButton = document.getElementsByClassName("edit-me");
+		var length = editButton.length -1;
+		editButton[length].addEventListener("click", function() { 
+				var targetID = event.target.id;
+				var editList = MessageBoard.removeMessage(targetID, messageLog);
+				messageLog = editList;
+				inputField.value = String(targetID);
+				inputField.focus();
+		});
 	}
+
 
  // Expose a function to read all messages and delete a single message
 
@@ -44,6 +56,15 @@ var MessageBoard = (function(originalMessageBoard) {
 	    	deleteButton.innerHTML = "Delete";
 	    	createLi.appendChild(theMessage);
 	    	createLi.appendChild(deleteButton);
+	    	messageList.appendChild(createLi);
+
+	    	// Create edit button
+	    	var editButton = document.createElement("BUTTON");
+	    	editButton.id = potatoe;
+	    	editButton.className = "edit-me";
+
+	    	editButton.innerHTML = "Edit";
+	    	createLi.appendChild(editButton);
 	    	messageList.appendChild(createLi);
 
 	    	inputField.value = "";

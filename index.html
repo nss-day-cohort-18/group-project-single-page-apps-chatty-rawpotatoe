@@ -1,41 +1,54 @@
 <!DOCTYPE html>
 <html>
-	<head>
+	<head profile="index.html">
 		<title>Chatty Exercise</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="icon"
+				type="image/jpg"
+				href="http://images4.fanpop.com/image/photos/18300000/potato-king-potato-king-and-his-minions-potatoes-18373904-225-225.jpg">
 	</head>
-	<body id="chatty-body">
-		<nav>
-			<ul>
-				<li>
-					<h2>Chatty</h2>
-				</li>
+
+	<body id="chattyBody">
+		<nav class="navbar">
+
+			<ul id="fixedNav">
+        <li>Chatty</li>
 				<li>
 					<input type="text" id="inputText" placeholder="Enter Your Message!">
 				</li>
 				<li>
 				<button id="clear-board-button">Clear The Board</button>
 				</li>
-			</ul>
-			<input type="checkbox" value="dark-theme" id="dark-theme-checkbox"><label>Dark Theme</label>
+			
 
-			<input type="checkbox" value="large-text" id="large-text-checkbox"><label>Large Text</label>
+
+				
+		
+			</ul>
 		</nav>
 
-		<label>Messages:</label>
-		<article id="message-board">
-			<ul id="message-board-list">
-			</ul>
-		</article>
 
+		<div class="spacer"><br><br><br><hr></div>
+		<ul id="themeCheckbox">
+					<input type="checkbox" value="dark-theme" id="dark-theme-checkbox"><label>Dark Theme</label>
 
+					<input type="checkbox" value="large-text" id="large-text-checkbox"><label>Large Text</label>
+				</ul>
+		<div class="wrapper">
+			<div class="realBody">
+				<label for="messageBox">Messages:</label><br>
+				<article id="message-board">
+					<ul id="message-board-list">
+					</ul>
+				</article>
+
+				<script type="text/javascript" src="javascript/javascript.js"></script>
+				<br>
+				<hr>
+			</div>
+		</div>
 		<script type="text/javascript" src="javascript/remove.js"></script>
 		<script type="text/javascript" src="javascript/javascript.js"></script>
 		<script type="text/javascript" src="javascript/message.js"></script>
 	</body>
-
-
-
-
-
-	
 </html>
