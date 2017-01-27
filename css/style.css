@@ -1,0 +1,46 @@
+#fixednav li {
+  display: inline-block;
+  align-content: center;
+}
+
+.spacer {
+  width: inherit;
+  height: 95px;
+
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  margin: 0;
+  padding: 2px;
+  display: flex;
+  background-color: grey;
+}
+
+
+
+
+.navbar ul {
+  position: fixed;
+  margin: 0;
+  padding: 2px;
+  display: flex;
+
+  justify-content: space-between;
+  align-content: center;
+  /*overflow: hidden;*/
+  background-color: grey;
+  width: cover;
+  height: cover;
+  left: 0;
+  right: 0;
+  top: 0;
+  text-align: center;
+
+  font: sans-serif;
+  font-weight: bold;
+  font-size: relative; 
+  text-shadow: 2px 1px #9ba4b2;
+  box-shadow: 2px 1px #9ba4b2;
+}
