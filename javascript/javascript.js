@@ -36,7 +36,7 @@ var MessageBoard = (function(originalMessageBoard) {
      });
 
      clearButton.addEventListener('click', function() {
-
+        MessageBoard.goodbyeMessages();
      });
 
   return originalMessageBoard;
