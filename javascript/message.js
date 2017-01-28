@@ -1,17 +1,9 @@
 "use strict";
 
-// One IIFE should contain a function that accepts an element id, 
-// and the user message, and then add the user's message - along with the delete button - 
-// to the specified parent element. Each message should be stored in a private array in this IIFE. 
-// This IIFE should also expose a function to read all messages, and delete a single message.
-
 var MessageBoard = (function(originalMessageBoard) {
 
 	var messageLog = [];
 	var userLog = [];
-	// var users = {
- //  		names: ["Jordan", "Jeremy", "Adam", "Ruthie"]
-	// };
 
 	var inputField = document.getElementById("inputText");
 	inputField.addEventListener("keypress", function (event) {
@@ -20,13 +12,17 @@ var MessageBoard = (function(originalMessageBoard) {
 			var userNames = document.getElementsByName("users");
 			var theUserName;
 
-			for (var k = 0; k < userNames.length; k++) {
-				if (userNames[k].checked) {
+			for (var k = 0; k <= userNames.length; k++) {
+				
+				if (k === userNames.length) {
+					alert("Please select a name");
+					return;
+				} else if (userNames[k].checked === true) {
 					theUserName = userNames[k].id;
-				}
+					MessageBoard.addMessage(messageText, theUserName);	
+					return;
+				} 
 			}
-		MessageBoard.addMessage(messageText, theUserName);	
-
 		}
 	});
 
@@ -37,19 +33,22 @@ var MessageBoard = (function(originalMessageBoard) {
 
 		deleteProperty[yup].addEventListener('click', function() {
 			var targetID = event.target.id;
-			var newList = MessageBoard.removeMessage(targetID, messageLog);
-			messageLog = newList;
+			var arrayNum = MessageBoard.removeMessage(targetID, messageLog);
+			messageLog.splice(arrayNum, 1);
+			userLog.splice(arrayNum, 1);
 		});
 		
 		
 		var editButton = document.getElementsByClassName("edit-me");
 		var length = editButton.length -1;
+
 		editButton[length].addEventListener("click", function() { 
-				var targetID = event.target.id;
-				var editList = MessageBoard.removeMessage(targetID, messageLog);
-				messageLog = editList;
-				inputField.value = String(targetID);
-				inputField.focus();
+			var targetID = event.target.id;
+			var indexNum = MessageBoard.removeMessage(targetID, messageLog);
+			messageLog.splice(indexNum, 1);
+			userLog.splice(indexNum, 1);
+			inputField.value = String(targetID);
+			inputField.focus();
 		});
 	}
 
@@ -60,35 +59,34 @@ var MessageBoard = (function(originalMessageBoard) {
 	actualMessage.parentElement.remove();
 	}
 
-
- // Expose a function to read all messages and delete a single message
+	function timeStampPlz () {
+		var now = new Date();
+		var date = [ now.getMonth() + 1, now.getDate(), now.getFullYear() ];
+		var time = [ now.getHours(), now.getMinutes(), now.getSeconds() ];
+		var suffix = ( time[0] < 12 ) ? "AM" : "PM";
+		time[0] = ( time[0] < 12 ) ? time[0] : time[0] - 12;
+		time[0] = time[0] || 12;
+			for ( var i = 1; i < 3; i++ ) {
+		    	if ( time[i] < 10 ) {
+		      		time[i] = "0" + time[i];
+		    	}
+		  	}
+	  	return date.join("/") + " " + time.join(":") + " " + suffix;
+	}
 
 	    originalMessageBoard.addMessage = function(potatoe, tomato) {
 	    	var messageList = document.getElementById("message-board-list");
 	    	var createLi = document.createElement("LI");
-	    	var theMessage = document.createTextNode(potatoe);
-	    	var theUser = document.createTextNode(tomato);
+	    	var currentTime = timeStampPlz();
 
-	    	var deleteButton = document.createElement("BUTTON");
-	    	var h6tag = document.createElement("H6");
-	    	deleteButton.id = potatoe;
-	    	deleteButton.className = "delete-me";
+	    	var readyToOutput = 
+	    			`<h6>${currentTime}</h6><h5>${tomato}</h5>
+		    		<p>${potatoe}</p>
+		    		<button class="delete-me" id="${potatoe}">Delete</button>
+		    		<button class="edit-me" id="${potatoe}">Edit</button>`;
 
-	    	deleteButton.innerHTML = "Delete";
-	    	h6tag.appendChild(theUser);
-	    	createLi.appendChild(h6tag);
-	    	createLi.appendChild(theMessage);
-	    	createLi.appendChild(deleteButton);
-	    	messageList.appendChild(createLi);
-
-	    	// Create edit button
-	    	var editButton = document.createElement("BUTTON");
-	    	editButton.id = potatoe;
-	    	editButton.className = "edit-me";
-
-	    	editButton.innerHTML = "Edit";
-	    	createLi.appendChild(editButton);
-	    	messageList.appendChild(createLi);
+		   	createLi.innerHTML = readyToOutput;
+		    messageList.appendChild(createLi);
 
 	    	inputField.value = "";
 
@@ -112,14 +110,8 @@ var MessageBoard = (function(originalMessageBoard) {
 	    	}
 	    };
 
-  // Return the new, augmented object with the new method on it
   return originalMessageBoard;
 
 })(MessageBoard || {});
 
 
-/* valueButton.id = "textAreaButton";
-var buttonText = document.createTextNode("Create a Card");
-valueButton.appendChild(buttonText);
-document.body.appendChild(valueButton);
-*/
