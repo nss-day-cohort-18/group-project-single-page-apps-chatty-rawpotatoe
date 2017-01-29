@@ -5,14 +5,58 @@
 
 #message-board-list {
 	list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 700px;
 }
 
+#message-board-list li {
+  width: 700px;
+  display: block;
+  height: 75px;
+}
 
+#message-board-list p {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 15px;
+}
 
+.delete-me {
+  float: right;
 
+}
 
+.edit-me {
+  float: right;
 
+}
 
+h5 {
+  margin: 0;
+  float: left;
+  margin-left: 10px;
+  clear: left;
+}
+
+h6 {
+  margin: 5px 0 10px 10px;
+  float: left;
+}
+
+#themeCheckbox {
+  text-decoration: none;
+  list-style: none;
+  background-color: rgba(100, 162, 196, 0.63);
+  width: 200px;
+  margin-left: 40px;
+  padding: 5px 5px;
+  border-radius: 20px;
+}
+
+#themeCheckbox li {
+  display: inline-block;
+}
 
 #fixednav li {
   display: inline-block;
@@ -83,7 +127,7 @@
 	min-height: 
     min-width: 200px;
     padding: 0; 
-    margin-top: 20%;
+    margin-top: 5%;
     margin-bottom: 25%;
     margin-left: 0;
     margin-right: 0;
@@ -101,6 +145,8 @@
     text-align: center;
     justify-content: center;
     max-height: 100%;
+    width: 75%;
+    margin: 0 auto;
     /*top: 0; */
 
   }
