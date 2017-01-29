@@ -151,6 +151,7 @@ var MessageBoard = (function(originalMessageBoard) {
 	    originalMessageBoard.goodbyeMessages = function(booty) {
 	    	if (event.target.id === "clear-board-button") {
 	    	messageLog = [];
+		userLog = [];
 	    	var goodbyeBoard = document.getElementById("message-board-list");
 	    	goodbyeBoard.innerHTML = "";
 	    	} else {
