@@ -10,7 +10,7 @@ var MessageBoard = (function(originalMessageBoard) {
       
      objectRequest.addEventListener("load", function (potato) {
     	var objectOfMessages = JSON.parse(event.target.responseText);
-        var funnyUserNames = ["Ruthie", "Potatoe", "Jordan", "Jeremy", "potatoe", "potatoe"]
+        var funnyUserNames = ["Ruthie", "Potatoe", "Jordan", "Jeremy", "Potatoe", "Potatoe"]
 
     	for (var i = 0; i < objectOfMessages.length; i++) {
         		var eachMessage = objectOfMessages[i];
