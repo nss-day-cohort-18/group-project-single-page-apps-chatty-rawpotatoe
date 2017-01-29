@@ -2,7 +2,12 @@
 
 var MessageBoard = (function(originalMessageBoard) {
 	  
-	    originalMessageBoard.removeMessage = function(potato, messageList) {
+	    /* 
+        make a function available to other javascript files that removes messages
+        from the DOM and from the array
+        */
+
+        originalMessageBoard.removeMessage = function(potato, messageList) {
             for (var u = 0; u < messageList.length; u++) {
                 if (potato === messageList[u]) {
                 var arrayNum = u;
@@ -12,11 +17,7 @@ var MessageBoard = (function(originalMessageBoard) {
         	return arrayNum;
         };
 
-        
-
   		return originalMessageBoard;
-
-  // Return the new, augmented object with the new method on it
 
 })(MessageBoard || {});
 

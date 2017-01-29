@@ -2,8 +2,19 @@
 
 var MessageBoard = (function(originalMessageBoard) {
 
+
+	/*
+	establish arrays to hold the messsages and usernames
+	*/
+
 	var messageLog = [];
 	var userLog = [];
+
+
+	/*
+	 allow users to submit messages by pressing the enter key on the input field
+	 and ask for a username if none selected
+	*/
 
 	var inputField = document.getElementById("inputText");
 	inputField.addEventListener("keypress", function (event) {
@@ -27,6 +38,11 @@ var MessageBoard = (function(originalMessageBoard) {
 	});
 
 
+	/*
+	attach an event listener to the delete button that removes the appropriate message
+	from the DOM and from the array on a click
+	*/
+
 	function messageEventListener () {
 		var deleteProperty = document.getElementsByClassName("delete-me");
 		var yup = deleteProperty.length - 1;
@@ -38,7 +54,12 @@ var MessageBoard = (function(originalMessageBoard) {
 			userLog.splice(arrayNum, 1);
 		});
 		
-		
+	
+	/* 
+	attach an event listener to the edit button that displays the message-to-be-edited 
+	in the input field and removes it from the array
+	*/
+
 		var editButton = document.getElementsByClassName("edit-me");
 		var length = editButton.length -1;
 
@@ -52,12 +73,22 @@ var MessageBoard = (function(originalMessageBoard) {
 		});
 	}
 
+
+	/*
+	remove the first message from the array and from the DOM when the listLimiter function is triggered
+	*/
+
 	function listLimiter () {
 	var firstMessage = messageLog[0];
 	messageLog.shift();
 	var actualMessage = document.getElementById(firstMessage);
 	actualMessage.parentElement.remove();
 	}
+
+
+	/*
+	add time and date to each message as it's submitted
+	*/
 
 	function timeStampPlz () {
 		var now = new Date();
@@ -73,6 +104,16 @@ var MessageBoard = (function(originalMessageBoard) {
 		  	}
 	  	return date.join("/") + " " + time.join(":") + " " + suffix;
 	}
+
+
+		/*
+		make an addMessage function available to other javascript files
+		in order to append new messages to the message board while keeping 
+		the messageLog array private
+
+		make the text text of each message its id in order to make it easy 
+		to find when editing or deleting
+		*/
 
 	    originalMessageBoard.addMessage = function(potatoe, tomato) {
 	    	var messageList = document.getElementById("message-board-list");
@@ -100,9 +141,17 @@ var MessageBoard = (function(originalMessageBoard) {
 
 	    },
 
+
+	    /*
+	    make a function available to the other javascript files the clears all 
+	    messages from the message board and the messageLog array while keeping 
+	    the array private
+	    */
+
 	    originalMessageBoard.goodbyeMessages = function(booty) {
 	    	if (event.target.id === "clear-board-button") {
 	    	messageLog = [];
+		userLog = [];
 	    	var goodbyeBoard = document.getElementById("message-board-list");
 	    	goodbyeBoard.innerHTML = "";
 	    	} else {
