@@ -27,8 +27,12 @@ var MessageBoard = (function(originalMessageBoard) {
      objectRequest.send();
 
      darkCheck.addEventListener('change', function(){
-     	var bodyElement = document.getElementById("chattyBody");
+     	var bodyElement = document.getElementById("real-body");
+        var navElement = document.getElementById("fixedNav");
      	bodyElement.classList.toggle("dark-theme");
+        bodyElement.classList.toggle("white-letters");
+        navElement.classList.toggle("dark-theme");
+        navElement.classList.toggle("white-letters");
      });
 
      largeCheck.addEventListener('change', function(){

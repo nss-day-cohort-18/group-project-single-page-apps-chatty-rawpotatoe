@@ -1,6 +1,9 @@
 #chattyBody {
-	background-image: url(https://s-media-cache-ak0.pinimg.com/originals/d5/9e/5f/d59e5fb961a1d0ff459cdb477524821f.jpg)
+	background-image: url(../images/background.jpg)
+}
 
+body {
+  min-width: 950px;
 }
 
 #message-board-list {
@@ -18,8 +21,9 @@
 
 #message-board-list p {
   width: 60%;
-  margin: 0 auto;
+  margin: 0;
   margin-top: 15px;
+  overflow: scroll;
 }
 
 .delete-me {
@@ -58,9 +62,14 @@ h6 {
   display: inline-block;
 }
 
-#fixednav li {
+ul#fixednav {
+  min-width: 900px;
+}
+
+#fixednav li {  
   display: inline-block;
   align-content: center;
+  height: 79px;
 }
 
 .spacer {
@@ -91,22 +100,27 @@ h6 {
   align-content: center;
   /*overflow: hidden;*/
   background-color: navy;
-  background-image: url(http://www.walldevil.com/wallpapers/w02/619472-blue-minimalistic-navy-pattern-patterns.jpg);
   width: cover;
   height: cover;
   left: 0;
   right: 0;
   top: 0;
   text-align: center;
-  color: white;
+  /*color: white;*/
   font: sans-serif;
   font-weight: bold;
   font-size: relative; 
-
 }
 
+.fixedNav {
+  background-image: url(../images/lightBackground.jpg);
+}
+
+
 #fixednav li {
-	display: inline-block;
+  /*********** This Id name has been mispelled
+  /*********** this whole section doesn't do anything
+	/*display: inline-block;
 	color: white;
 	margin: auto;
 	padding: 20px 50px;
@@ -115,29 +129,35 @@ h6 {
 	align-content: center;
 	float: center;
 	float: middle;
-	font-size: 500%;
+	font-size: 500%;*/
 
+}
+
+.white-letters {
+  color: white;
 }
 
 
 .realBody {
 	overflow: hidden;
 	background-color: navy;
-	background-image: url(http://www.walldevil.com/wallpapers/w02/619472-blue-minimalistic-navy-pattern-patterns.jpg);
+	background-image: url(../images/lightBackground.jpg);
 	min-height: 
-    min-width: 200px;
-    padding: 0; 
-    margin-top: 5%;
-    margin-bottom: 25%;
-    margin-left: 0;
-    margin-right: 0;
-    color: white;
-    /*border: 30px;
-    border-color: #233a5e; */
+  min-width: 900px;
+  padding: 0; 
+  margin-top: 5%;
+  margin-bottom: 25%;
+  margin-left: 0;
+  margin-right: 0;
+  /*color: white;*/
+  /*border: 30px;
+  border-color: #233a5e; */
   
 }
 
-
+.dark-theme {
+  background-image: url(../images/blueBackground.jpg);
+}
 
 
 .wrapper {
@@ -150,3 +170,8 @@ h6 {
     /*top: 0; */
 
   }
+
+
+.large-font p {
+  font-size: 1.5em;
+}
