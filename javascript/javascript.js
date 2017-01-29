@@ -10,7 +10,7 @@ var MessageBoard = (function(originalMessageBoard) {
       
      objectRequest.addEventListener("load", function (potato) {
     	var objectOfMessages = JSON.parse(event.target.responseText);
-        var funnyUserNames = ["Ruthie", "potatoe", "Jordan", "Jeremy", "potatoe", "potatoe"]
+        var funnyUserNames = ["Ruthie", "Potatoe", "Jordan", "Jeremy", "potatoe", "potatoe"]
 
     	for (var i = 0; i < objectOfMessages.length; i++) {
         		var eachMessage = objectOfMessages[i];
@@ -27,7 +27,7 @@ var MessageBoard = (function(originalMessageBoard) {
      objectRequest.send();
 
      darkCheck.addEventListener('change', function(){
-     	var bodyElement = document.getElementById("chatty-body");
+     	var bodyElement = document.getElementById("chattyBody");
      	bodyElement.classList.toggle("dark-theme");
      });
 
