@@ -20,6 +20,10 @@ var MessageBoard = (function(originalMessageBoard) {
 	inputField.addEventListener("keypress", function (event) {
 		if (event.which === 13) {
 			var messageText = inputField.value;
+			if (messageText === "") {
+				alert("Please give me a message.");
+				return;
+			}
 			var userNames = document.getElementsByName("users");
 			var theUserName;
 
