@@ -1,6 +1,10 @@
 #chattyBody {
-	background-image: url(https://s-media-cache-ak0.pinimg.com/originals/d5/9e/5f/d59e5fb961a1d0ff459cdb477524821f.jpg)
+	background-image: url(https://s-media-cache-ak0.pinimg.com/originals/d5/9e/5f/d59e5fb961a1d0ff459cdb477524821f.jpg);
 
+}
+
+#themeCheckbox {
+	color: white;
 }
 
 #message-board-list {
@@ -8,7 +12,18 @@
 }
 
 
+.potatoe {
+	position: relative; 
+	z-index: 100;
+	opacity: 0.50;
+	display: flex;
+	left: 0;
+	right: 0;
+	margin-right: auto;
+	margin-left: auto;
+	
 
+}
 
 
 
@@ -80,7 +95,7 @@
 	overflow: hidden;
 	background-color: navy;
 	background-image: url(http://www.walldevil.com/wallpapers/w02/619472-blue-minimalistic-navy-pattern-patterns.jpg);
-	min-height: 
+	min-height: 100%;
     min-width: 200px;
     padding: 0; 
     margin-top: 20%;
