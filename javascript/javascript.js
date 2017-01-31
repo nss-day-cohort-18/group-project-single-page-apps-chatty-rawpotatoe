@@ -45,6 +45,7 @@ var MessageBoard = (function(originalMessageBoard) {
         navElement.classList.toggle("dark-theme");
         navElement.classList.toggle("white-letters");
         checkboxs.classList.toggle('white-letters');
+        checkboxs.classList.toggle('white-theme');
      });
 
 
