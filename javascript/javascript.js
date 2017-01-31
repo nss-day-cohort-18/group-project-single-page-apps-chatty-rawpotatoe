@@ -39,10 +39,12 @@ var MessageBoard = (function(originalMessageBoard) {
      darkCheck.addEventListener('change', function(){
      	var bodyElement = document.getElementById("real-body");
         var navElement = document.getElementById("fixedNav");
+        var checkboxs = document.getElementById("themeCheckbox");
      	bodyElement.classList.toggle("dark-theme");
         bodyElement.classList.toggle("white-letters");
         navElement.classList.toggle("dark-theme");
         navElement.classList.toggle("white-letters");
+        checkboxs.classList.toggle('white-letters');
      });
 
 

@@ -122,6 +122,10 @@ ul#fixednav {
   color: white;
 }
 
+.white-letters li {
+  color: white;
+}
+
 
 .realBody {
 	overflow: hidden;
