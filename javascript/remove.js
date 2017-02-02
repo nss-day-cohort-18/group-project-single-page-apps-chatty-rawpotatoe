@@ -13,13 +13,11 @@ var MessageBoard = (function(originalMessageBoard) {
                 var arrayNum = u;
                 }
             };
-        	event.target.parentElement.remove();
-        	return arrayNum;
+        	//event.target.parentElement.remove();
+            $(event.target).parent().remove();
+            return arrayNum;
         };
 
   		return originalMessageBoard;
 
 })(MessageBoard || {});
-
-
-

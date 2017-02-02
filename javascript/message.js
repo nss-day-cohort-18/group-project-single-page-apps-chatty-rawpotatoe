@@ -10,13 +10,13 @@ var MessageBoard = (function(originalMessageBoard) {
 	var messageLog = [];
 	var userLog = [];
 
-
 	/*
 	 allow users to submit messages by pressing the enter key on the input field
 	 and ask for a username if none selected
 	*/
 
-	var inputField = document.getElementById("inputText");
+	// var inputField = document.getElementById("inputText");
+	var inputField = $("#inputText")[0];
 	inputField.addEventListener("keypress", function (event) {
 		if (event.which === 13) {
 			var messageText = inputField.value;
@@ -24,8 +24,10 @@ var MessageBoard = (function(originalMessageBoard) {
 				alert("Please give me a message.");
 				return;
 			}
-			var userNames = document.getElementsByName("users");
+			// var userNames = document.getElementsByName("users");
+			var userNames = $("[name=users]");
 			var theUserName;
+
 
 			for (var k = 0; k <= userNames.length; k++) {
 				
@@ -48,7 +50,8 @@ var MessageBoard = (function(originalMessageBoard) {
 	*/
 
 	function messageEventListener () {
-		var deleteProperty = document.getElementsByClassName("delete-me");
+		// var deleteProperty = document.getElementsByClassName("delete-me");
+		var deleteProperty = $(".delete-me");
 		var yup = deleteProperty.length - 1;
 
 		deleteProperty[yup].addEventListener('click', function() {
@@ -64,7 +67,8 @@ var MessageBoard = (function(originalMessageBoard) {
 	in the input field and removes it from the array
 	*/
 
-		var editButton = document.getElementsByClassName("edit-me");
+		// var editButton = document.getElementsByClassName("edit-me");
+		var editButton = $(".edit-me");
 		var length = editButton.length -1;
 
 		editButton[length].addEventListener("click", function() { 
@@ -85,7 +89,8 @@ var MessageBoard = (function(originalMessageBoard) {
 	function listLimiter () {
 	var firstMessage = messageLog[0];
 	messageLog.shift();
-	var actualMessage = document.getElementById(firstMessage);
+	// var actualMessage = document.getElementById(firstMessage);
+	var actuallMessage = $("#firstMessage")[0];
 	actualMessage.parentElement.remove();
 	}
 
@@ -120,8 +125,10 @@ var MessageBoard = (function(originalMessageBoard) {
 		*/
 
 	    originalMessageBoard.addMessage = function(potatoe, tomato) {
-	    	var messageList = document.getElementById("message-board-list");
+	    	var messageList = $("#message-board-list")[0];
+	    	// var messageList = document.getElementById("message-board-list");
 	    	var createLi = document.createElement("LI");
+	    	// var createLi = $("<li>");
 	    	var currentTime = timeStampPlz();
 
 	    	var readyToOutput = 
@@ -155,8 +162,9 @@ var MessageBoard = (function(originalMessageBoard) {
 	    originalMessageBoard.goodbyeMessages = function(booty) {
 	    	if (event.target.id === "clear-board-button") {
 	    	messageLog = [];
-		userLog = [];
-	    	var goodbyeBoard = document.getElementById("message-board-list");
+			userLog = [];
+	    	// var goodbyeBoard = document.getElementById("message-board-list");
+	    	var goodbyeBoard = $("#message-board-list")[0];
 	    	goodbyeBoard.innerHTML = "";
 	    	} else {
 	    		console.log("Syntax Error please piss off.");
@@ -166,5 +174,4 @@ var MessageBoard = (function(originalMessageBoard) {
   return originalMessageBoard;
 
 })(MessageBoard || {});
-
 
